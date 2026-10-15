@@ -1,0 +1,1698 @@
+HTML DE CADASTRO
+
+<h3>Cadastro de cliente</h3>
+<!--- dados do cadastro -->
+
+<hr>
+
+  <form name="cadcliente" id="cadcliente" method="post" action="">
+
+<section class="row" id="cadastro">
+    
+  
+        
+        <div class="col-md-4">
+            <label>Nome:</label>
+            <input type="text" name="cli_nome" class="form-control" minlength="3" required>
+            
+            
+        </div>
+        
+        <div class="col-md-4">
+            <label>Sobrenome:</label>
+            <input type="text" name="cli_sobrenome" class="form-control"  minlength="3" required>
+            
+            
+        </div>
+        
+      
+        <div class="col-md-3">
+            <label>Data Nasc:</label>
+            <input type="date" name="cli_data_nasc" class="form-control" required>
+            
+            
+        </div>
+        
+      
+        <div class="col-md-2">
+            <label>RG:</label>
+            <input type="text" name="cli_rg" class="form-control" required>
+            
+            
+        </div>
+        
+      
+        
+        <div class="col-md-2">
+            <label>CPF:</label>
+            <input type="text" name="cli_cpf" class="form-control" minlength="11" maxlength="11" required>
+            
+            
+        </div>
+        
+      
+        
+        <div class="col-md-2">
+            <label>DDD:</label>
+            <input type="number" name="cli_ddd" class="form-control"  min="10" max="99" required>
+            
+            
+        </div>
+        
+      
+        
+        <div class="col-md-3">
+            <label>Fone:</label>
+            <input type="number" name="cli_fone" class="form-control" required>
+            
+            
+        </div>
+        
+      
+        
+        <div class="col-md-3">
+            <label>Celular:</label>
+            <input type="number" name="cli_celular" class="form-control" required>
+            
+            
+        </div>
+                
+        
+        
+        <div class="col-md-6">
+            <label>Endereço:</label>
+            <input type="text" name="cli_endereco" class="form-control"  minlength="3" required>
+            
+            
+        </div>
+        
+        
+        
+        <div class="col-md-2">
+            <label>Numero:</label>
+            <input type="text" name="cli_numero" class="form-control" required>
+            
+            
+        </div>
+        
+        
+        <div class="col-md-4">
+            <label>Bairro:</label>
+            <input type="text" name="cli_bairro" class="form-control" minlength="3" required>
+            
+            
+        </div>
+        
+        
+        <div class="col-md-4">
+            <label>Cidade:</label>
+            <input type="text" name="cli_cidade" class="form-control" minlength="3" required>
+            
+            
+        </div>
+        
+        
+        <div class="col-md-2">
+            <label>UF:</label>
+           
+            <input type="text" name="cli_uf" class="form-control" maxlength="2" minlength="2" required>
+            
+            
+        </div>
+        
+        
+        <div class="col-md-2">
+            <label>Cep:</label>
+           
+            <input type="text" name="cli_cep" class="form-control" minlength="8" maxlength="8" required>
+            
+            
+        </div>
+        
+        
+        <div class="col-md-4">
+            <label>Email:</label>
+           
+            <input type="email" name="cli_email" class="form-control" required>
+            
+            
+        </div>
+        
+        
+        
+        
+        
+ 
+    
+       
+    
+</section>
+
+      <br>
+      <br>
+      
+      <section class="row" id="btngravar">
+          
+       <div class="col-md-4"></div>
+       
+       <div class="col-md-4">
+           <button type="submit" class="btn btn-geral btn-block "> <i class="glyphicon glyphicon-ok"></i> Gravar </button>
+               
+           
+       </div>
+       
+       <div class="col-md-4"></div>
+    
+    
+</section>
+      
+      
+         </form>
+
+
+
+
+
+
+
+
+CONTROLLER CLIENTES
+
+     $cli_sobrenome = $_POST['cli_sobrenome'];
+     $cli_data_nasc = $_POST['cli_data_nasc'];
+     $cli_rg        = $_POST['cli_rg'];
+     $cli_cpf       = $_POST['cli_cpf'];
+     $cli_ddd       = $_POST['cli_ddd'];
+     $cli_fone      = $_POST['cli_fone'];
+     $cli_celular   = $_POST['cli_celular'];
+     $cli_endereco  = $_POST['cli_endereco'];
+     $cli_numero    = $_POST['cli_numero'];
+     $cli_bairro    = $_POST['cli_bairro'];
+     $cli_cidade    = $_POST['cli_cidade'];
+     $cli_uf        = $_POST['cli_uf'];
+     $cli_cep       = $_POST['cli_cep'];
+     $cli_email     = $_POST['cli_email'];
+     $cli_senha     = Sistema::GerarSenha();
+     $cli_data_cad  = Sistema::DataAtualUS();
+     $cli_hora_cad  = Sistema::HoraAtual();
+
+
+
+
+
+
+     VARIAVEIS NA CLASSE CLIENTES
+
+      private  $cli_nome ,
+            $cli_sobrenome ,
+            $cli_data_nasc,
+            $cli_rg  ,
+            $cli_cpf ,
+            $cli_ddd  ,
+            $cli_fone ,
+            $cli_celular ,
+            $cli_endereco ,
+            $cli_numero ,
+            $cli_bairro ,
+            $cli_cidade ,
+            $cli_uf ,
+            $cli_cep ,
+            $cli_email ,
+            $cli_data_cad,
+            $cli_hora_cad,
+            $cli_senha;
+
+
+
+
+
+
+
+
+FUNÇÃO PARA PREPARAR CLIENTES
+
+  function Preparar($cli_nome, $cli_sobrenome , $cli_data_nasc, $cli_rg,
+            $cli_cpf , $cli_ddd  , $cli_fone , $cli_celular , $cli_endereco , $cli_numero,
+            $cli_bairro , $cli_cidade ,$cli_uf ,$cli_cep ,$cli_email , $cli_data_cad,
+            $cli_hora_cad, $cli_senha){
+        
+        
+        $this->setCli_nome($cli_nome);
+        $this->setCli_sobrenome($cli_sobrenome);
+        $this->setCli_data_nasc($cli_data_nasc);
+        $this->setCli_rg($cli_rg);
+        $this->setCli_cpf($cli_cpf);
+        $this->setCli_ddd($cli_ddd);
+        $this->setCli_fone($cli_fone);
+        $this->setCli_celular($cli_celular);
+        $this->setCli_endereco($cli_endereco);
+        $this->setCli_numero($cli_numero);
+        $this->setCli_bairro($cli_bairro);
+        $this->setCli_cidade($cli_cidade);
+        $this->setCli_uf($cli_uf);
+        $this->setCli_cep($cli_cep);
+        $this->setCli_email($cli_email);
+        $this->setCli_data_cad($cli_data_cad);
+        $this->setCli_hora_cad($cli_hora_cad);
+        $this->setCli_senha($cli_senha);
+       
+        
+        
+    }
+
+
+
+
+
+
+
+
+
+MÉTODOS GET
+
+// GETTERS retornando os dados do cliente 
+    
+    
+    function getCli_nome() {
+        return $this->cli_nome;
+    }
+
+    function getCli_sobrenome() {
+        return $this->cli_sobrenome;
+    }
+
+    function getCli_data_nasc() {
+        return $this->cli_data_nasc;
+    }
+
+    function getCli_rg() {
+        return $this->cli_rg;
+    }
+
+    function getCli_cpf() {
+      
+        
+        return $this->cli_cpf;
+    
+        
+    }
+
+    function getCli_ddd() {
+        return $this->cli_ddd;
+    }
+
+    function getCli_fone() {
+        return $this->cli_fone;
+    }
+
+    function getCli_celular() {
+        return $this->cli_celular;
+    }
+
+    function getCli_endereco() {
+        return $this->cli_endereco;
+    }
+    
+    function getCli_numero(){
+        
+        return $this->cli_numero;
+        
+    }
+    function getCli_bairro() {
+        return $this->cli_bairro;
+    }
+
+    function getCli_cidade() {
+        return $this->cli_cidade;
+    }
+
+    function getCli_uf() {
+        return $this->cli_uf;
+    }
+
+    function getCli_cep() {
+        return $this->cli_cep;
+    }
+
+    function getCli_email() {
+        return $this->cli_email;
+    }
+
+    function getCli_data_cad() {
+        return $this->cli_data_cad;
+    }
+
+    function getCli_hora_cad() {
+        return $this->cli_hora_cad;
+    }
+
+    function getCli_senha() {
+        return $this->cli_senha;
+    }
+
+
+
+
+
+
+
+
+
+
+  //  SETTERS do cliente 
+    
+    function setCli_nome($cli_nome) {
+       
+        if(strlen($cli_nome) < 3):
+            
+            
+              echo '<div class="alert alert-danger " id="erro_mostrar"> Digite seu nome ';
+                Sistema::VoltarPagina();
+                echo '</div>';
+           
+            
+            else:
+            
+            $this->cli_nome = $cli_nome;   
+        endif;
+        
+     
+    
+        
+    }
+
+    function setCli_sobrenome($cli_sobrenome) {
+        
+        if(strlen($cli_sobrenome) < 3):
+             echo '<div class="alert alert-danger " id="erro_mostrar"> Digite seu sobrenome ';
+                Sistema::VoltarPagina();
+                echo '</div>';
+            
+            
+            else:
+             $this->cli_sobrenome = $cli_sobrenome;
+            
+        endif;
+        
+       
+    }
+
+    function setCli_data_nasc($cli_data_nasc) {
+        
+        
+        $this->cli_data_nasc = $cli_data_nasc;
+    }
+
+    function setCli_rg($cli_rg) {
+        $this->cli_rg = $cli_rg;
+    }
+
+    function setCli_cpf($cli_cpf) {
+        
+
+        
+          $this->cli_cpf = $cli_cpf;   
+       
+    }
+
+    function setCli_ddd($cli_ddd) {
+        
+         $ddd = filter_var($cli_ddd, FILTER_SANITIZE_NUMBER_INT);
+
+        
+        if(strlen($ddd) != 2):
+                echo '<div class="alert alert-danger " id="erro_mostrar"> DDD incorreto ';
+                Sistema::VoltarPagina();
+                echo '</div>';
+           
+           else:
+           $this->cli_ddd = $cli_ddd;
+           
+       endif;
+            
+    }
+
+    function setCli_fone($cli_fone) {
+        $this->cli_fone = $cli_fone;
+    }
+
+    function setCli_celular($cli_celular) {
+        $this->cli_celular = $cli_celular;
+    }
+
+    function setCli_endereco($cli_endereco) {
+        $this->cli_endereco = $cli_endereco;
+    }
+    
+    function setCli_numero($cli_numero){
+        
+        $this->cli_numero = $cli_numero;
+    }
+                
+    function setCli_bairro($cli_bairro) {
+        $this->cli_bairro = $cli_bairro;
+    }
+
+    function setCli_cidade($cli_cidade) {
+        $this->cli_cidade = $cli_cidade;
+    }
+
+    function setCli_uf($cli_uf) {
+        
+         $uf = filter_var($cli_uf, FILTER_SANITIZE_STRING);
+        
+       if(strlen($uf) != 2): // 11111
+                echo '<div class="alert alert-danger " id="erro_mostrar"> UF incorreto ';
+                Sistema::VoltarPagina();
+                echo '</div>';
+           
+           else:
+           $this->cli_uf = $cli_uf;
+           
+       endif;
+            
+    }
+
+    function setCli_cep($cli_cep) {
+        
+       $cep = filter_var($cli_cep, FILTER_SANITIZE_NUMBER_INT);
+        
+       if(strlen($cep) != 8):
+                echo '<div class="alert alert-danger " id="erro_mostrar"> CEP incorreto ';
+                Sistema::VoltarPagina();
+                echo '</div>';
+           
+           else:
+           $this->cli_cep = $cli_cep;
+           
+       endif;
+            
+       
+        
+    }
+
+    function setCli_email($cli_email) {
+        
+        if(!filter_var($cli_email, FILTER_VALIDATE_EMAIL)):
+            
+                echo '<div class="alert alert-danger " id="erro_mostrar"> Email incorreto ';
+                Sistema::VoltarPagina();
+                echo '</div>';
+            
+            exit();
+            
+        else:
+            
+                $this->cli_email = $cli_email;
+        endif;
+        
+    
+        
+    }
+
+    function setCli_data_cad($cli_data_cad) {
+        $this->cli_data_cad = $cli_data_cad;
+    }
+
+    function setCli_hora_cad($cli_hora_cad) {
+        $this->cli_hora_cad = $cli_hora_cad;
+    }
+
+    function setCli_senha($cli_senha) {
+       
+        $this->cli_senha = Sistema::Criptografia($cli_senha);
+        // 123 => md5 = 18513ba35987a447b98f075bd226a1fc
+    }
+
+  
+    
+    
+
+
+
+
+
+
+//query para inserir clientes
+
+  $query = " INSERT INTO {$this->prefix}clientes (cli_nome, cli_sobrenome,cli_data_nasc,cli_rg,";
+        $query .=" cli_cpf, cli_ddd,cli_fone,cli_celular ,cli_endereco ,cli_numero,cli_bairro ,";
+        $query .=" cli_cidade ,cli_uf ,cli_cep ,cli_email ,cli_data_cad, cli_hora_cad, cli_pass)";   
+        $query .=" VALUES ";
+        $query .=" (:cli_nome, :cli_sobrenome,:cli_data_nasc,:cli_rg,";
+        $query .=" :cli_cpf, :cli_ddd,:cli_fone,:cli_celular ,:cli_endereco ,:cli_numero,:cli_bairro ,";
+        $query .=" :cli_cidade ,:cli_uf ,:cli_cep ,:cli_email ,:cli_data_cad, :cli_hora_cad, :cli_senha)";  
+   
+        $params = array(
+        ':cli_nome'     => $this->getCli_nome() ,    
+        ':cli_sobrenome'=> $this->getCli_sobrenome() ,   
+        ':cli_data_nasc'=> $this->getCli_data_nasc() ,   
+        ':cli_rg'       => $this->getCli_rg() ,   
+        ':cli_cpf'      => $this->getCli_cpf() ,   
+        ':cli_ddd'      => $this->getCli_ddd() ,   
+        ':cli_fone'     => $this->getCli_fone() ,   
+        ':cli_celular'  => $this->getCli_celular() ,   
+        ':cli_endereco' => $this->getCli_endereco() ,   
+        ':cli_numero'   => $this->getCli_numero() ,   
+        ':cli_bairro'   => $this->getCli_bairro() ,   
+        ':cli_cidade'   => $this->getCli_cidade() ,   
+        ':cli_uf'       => $this->getCli_uf() ,   
+        ':cli_cep'      => $this->getCli_cep() ,   
+        ':cli_email'    => $this->getCli_email() ,   
+        ':cli_data_cad' => $this->getCli_data_cad() ,   
+        ':cli_hora_cad' => $this->getCli_hora_cad() ,   
+        ':cli_senha'    => $this->getCli_senha()   
+            
+        );
+        
+      
+        
+                   
+            $this->ExecuteSQL($query, $params);
+           
+            
+      
+
+
+
+
+//CHAMAR A FUNÇÃO PARA PREPARAR OS DADOS
+
+$clientes->Preparar($cli_nome, $cli_sobrenome, $cli_data_nasc, $cli_rg, $cli_cpf, $cli_ddd, $cli_fone, $cli_celular, $cli_endereco, $cli_numero, $cli_bairro, $cli_cidade, $cli_uf, $cli_cep, $cli_email, $cli_data_cad, $cli_hora_cad, $cli_senha);
+
+
+
+
+
+//CORPO DA PÁGINA DE EMAIL CADASTRO CLIENTE
+
+<h3>Olá {$NOME} , obrigado por se cadastrar em {$SITE}</h3>
+
+<h3> Cadastro efetuado com sucesso,  para fazer  o login use seu email cadastrado ( {$EMAIL} )
+<br>
+com a sua senha, sua senha neste momento é ( {$SENHA} )
+
+</h3>
+<h3>
+    Para acessar o site e sua conta basta usar este endereço <a href="{$PAG_MINHA_CONTA}">{$PAG_MINHA_CONTA}</a>
+    
+</h3>
+
+
+
+
+
+
+//PAGINA RECUPERAR SENHA
+
+<h4 class="text-center">Digite seu email cadatrado para receber uma nova senha </h4>
+<hr>
+
+<form name="recuperarsenha" method="post" action="">
+    
+    <section>
+        <div class="col-md-4"></div>
+        
+        <div class="col-md-4">
+            <label>Digite seu email cadastrado</label>
+          
+            <input type="email" name="cli_email" id="cli_email" class="form-control" required>
+            <br>
+            <button type="submit" class="btn btn-geral btn-block"> Recuperar </button>
+        </div>
+       
+        <div class="col-md-4">
+       
+            
+            
+        </div>
+        
+        
+        
+    </section>
+
+  
+    
+</form>
+
+
+
+
+
+
+
+
+
+
+//PAGINA CLIENTE MUDAR SENHA
+
+<h3 class="text-center">Alteração de senha de acesso</h3>
+
+
+<form name="alterarsenha" method="post" action="">
+    
+    <section>
+        <div class="col-md-4"></div>
+        
+        <div class="col-md-4">
+            <label>Digite sua senha atual</label>
+          
+            <input type="password" name="cli_senha_atual" id="cli_senha_atual" class="form-control" required>
+          
+           
+            
+            <label>Digite sua nova senha</label>
+          
+            <input type="password" name="cli_senha" id="cli_senha" class="form-control" required>
+            <br>
+           
+            
+            
+            <button type="submit" class="btn btn-geral btn-block"> Alterar </button>
+        </div>
+       
+        <div class="col-md-4">
+       
+            
+            
+        </div>
+        
+        
+        
+    </section>
+
+  
+
+    
+    
+    
+</form>
+
+
+
+
+
+
+
+
+TELA DE ALTERAR DADOS CLIENTES
+
+<h3>Meus Dados</h3>
+
+<hr>
+
+
+
+
+  <form name="cadcliente" id="cadcliente" method="post" action="">
+
+<section class="row" id="cadastro">
+    
+  
+        
+        <div class="col-md-4">
+            <label>Nome:</label>
+            <input type="text" value="{$CLI_NOME}" name="cli_nome" class="form-control" minlength="3" required>
+            
+            
+        </div>
+        
+        <div class="col-md-4">
+            <label>Sobrenome:</label>
+            <input type="text" value="{$CLI_SOBRENOME}" name="cli_sobrenome" class="form-control"  minlength="3" required>
+            
+            
+        </div>
+        
+      
+        <div class="col-md-3">
+            <label>Data Nasc:</label>
+            <input type="date" value="{$CLI_DATA_NASC}" name="cli_data_nasc" class="form-control" required>
+            
+            
+        </div>
+        
+      
+        <div class="col-md-2">
+            <label>RG:</label>
+            <input type="text" value="{$CLI_RG}" name="cli_rg" class="form-control" required>
+            
+            
+        </div>
+        
+      
+        
+        <div class="col-md-2">
+            <label>CPF:</label>
+            <input type="text" value="{$CLI_CPF}" name="cli_cpf" class="form-control" minlength="11" maxlength="11" required readonly>
+            
+            
+        </div>
+        
+      
+        
+        <div class="col-md-2">
+            <label>DDD:</label>
+            <input type="number" value="{$CLI_DDD}" name="cli_ddd" class="form-control"  min="10" max="99" required>
+            
+            
+        </div>
+        
+      
+        
+        <div class="col-md-3">
+            <label>Fone:</label>
+            <input type="number" value="{$CLI_FONE}" name="cli_fone" class="form-control" required>
+            
+            
+        </div>
+        
+      
+        
+        <div class="col-md-3">
+            <label>Celular:</label>
+            <input type="number" value="{$CLI_CELULAR}" name="cli_celular" class="form-control" required>
+            
+            
+        </div>
+                
+        
+        
+        <div class="col-md-6">
+            <label>Endereço:</label>
+            <input type="text" value="{$CLI_ENDERECO}" name="cli_endereco" class="form-control"  minlength="3" required>
+            
+            
+        </div>
+        
+        
+        
+        <div class="col-md-2">
+            <label>Numero:</label>
+            <input type="text" value="{$CLI_NUMERO}" name="cli_numero" class="form-control" required>
+            
+            
+        </div>
+        
+        
+        <div class="col-md-4">
+            <label>Bairro:</label>
+            <input type="text" value="{$CLI_BAIRRO}" name="cli_bairro" class="form-control" minlength="3" required>
+            
+            
+        </div>
+        
+        
+        <div class="col-md-4">
+            <label>Cidade:</label>
+            <input type="text" value="{$CLI_CIDADE}" name="cli_cidade" class="form-control" minlength="3" required>
+            
+            
+        </div>
+        
+        
+        <div class="col-md-2">
+            <label>UF:</label>
+           
+            <input type="text" value="{$CLI_UF}"name="cli_uf" class="form-control" maxlength="2" minlength="2" required>
+            
+            
+        </div>
+        
+        
+        <div class="col-md-2">
+            <label>Cep:</label>
+           
+            <input type="text" value="{$CLI_CEP}" name="cli_cep" class="form-control" minlength="8" maxlength="8" required>
+            
+            
+        </div>
+        
+        
+        <div class="col-md-4">
+            <label>Email:</label>
+           
+            <input type="email" value="{$CLI_EMAIL}" name="cli_email" class="form-control" required>
+            
+            
+        </div>
+        
+     
+       
+    
+</section>
+
+      <br>
+      <br>
+      
+      <section class="row" id="btngravar">
+          
+       <div class="col-md-4"></div>
+       
+       <div class="col-md-4">
+           <label>Digite sua senha atual por segurança<br>(<small>sua senha não será alterada</small>)</label>
+           <input type="password" name="cli_senha" id="cli_senha" class="form-control" required>
+           <br>
+           <button type="submit" class="btn btn-geral btn-block "> <i class="glyphicon glyphicon-ok"></i> Gravar </button>
+               
+           
+       </div>
+       
+       <div class="col-md-4"></div>
+    
+    
+</section>
+      
+      
+         </form>
+    
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+//FUNCAO PARA EDITAR OS CLIENTES
+
+ function Editar($id){
+        
+              
+          // verifico se ja tem este CPF no banco
+        if($this->GetClienteCPF($this->getCli_cpf()) > 0 && $this->getCli_cpf() != $_SESSION['CLI']['cli_cpf']):
+                echo '<div class="alert alert-danger " id="erro_mostrar"> Este CPF já esta cadastrado ';
+                Sistema::VoltarPagina();
+                echo '</div>';
+                exit();
+        endif;
+          // verifica se o email já esta cadastrado 
+          if($this->GetClienteEmail($this->getCli_email()) > 0 && $this->getCli_email() != $_SESSION['CLI']['cli_email']):
+                echo '<div class="alert alert-danger " id="erro_mostrar"> Este Email já esta cadastrado ';
+                Sistema::VoltarPagina();
+                echo '</div>';
+                exit();
+        endif;
+        
+        
+        // caso passou na verificação grava no banco
+        
+        $query = " UPDATE {$this->prefix}clientes SET cli_nome=:cli_nome, cli_sobrenome=:cli_sobrenome,cli_data_nasc=:cli_data_nasc,cli_rg=:cli_rg,";
+        $query .=" cli_cpf=:cli_cpf, cli_ddd=:cli_ddd,cli_fone=:cli_fone,cli_celular=:cli_celular ,cli_endereco=:cli_endereco ,cli_numero=:cli_numero,cli_bairro=:cli_bairro ,";
+        $query .=" cli_cidade=:cli_cidade ,cli_uf=:cli_uf ,cli_cep=:cli_cep ,cli_email=:cli_email ,cli_data_cad=:cli_data_cad, cli_hora_cad=:cli_hora_cad, cli_pass=:cli_senha ";   
+        $query .=" WHERE  cli_id = :cli_id";
+      //  $query .=" (:cli_nome, :cli_sobrenome,:cli_data_nasc,:cli_rg,";
+      //  $query .=" :cli_cpf, :cli_ddd,:cli_fone,:cli_celular ,:cli_endereco ,:cli_numero,:cli_bairro ,";
+      //  $query .=" :cli_cidade ,:cli_uf ,:cli_cep ,:cli_email ,:cli_data_cad, :cli_hora_cad, :cli_senha)";  
+   
+        $params = array(
+        ':cli_nome'     => $this->getCli_nome() ,    
+        ':cli_sobrenome'=> $this->getCli_sobrenome() ,   
+        ':cli_data_nasc'=> $this->getCli_data_nasc() ,   
+        ':cli_rg'       => $this->getCli_rg() ,   
+        ':cli_cpf'      => $this->getCli_cpf() ,   
+        ':cli_ddd'      => $this->getCli_ddd() ,   
+        ':cli_fone'     => $this->getCli_fone() ,   
+        ':cli_celular'  => $this->getCli_celular() ,   
+        ':cli_endereco' => $this->getCli_endereco() ,   
+        ':cli_numero'   => $this->getCli_numero() ,   
+        ':cli_bairro'   => $this->getCli_bairro() ,   
+        ':cli_cidade'   => $this->getCli_cidade() ,   
+        ':cli_uf'       => $this->getCli_uf() ,   
+        ':cli_cep'      => $this->getCli_cep() ,   
+        ':cli_email'    => $this->getCli_email() ,   
+        ':cli_data_cad' => $this->getCli_data_cad() ,   
+        ':cli_hora_cad' => $this->getCli_hora_cad() ,   
+        ':cli_senha'    => $this->getCli_senha(),   
+        ':cli_id'       => (int)$id   
+            
+        );
+        
+      //  echo $query;
+        
+                   
+            if($this->ExecuteSQL($query, $params)):
+                
+                    return true;
+                
+            else:
+                
+                    return false;
+            endif;
+
+        
+    }
+
+
+
+
+
+
+
+
+
+PAGINA DOS ITENS DO PEDIDO
+
+<h4 class="text-center">Dados do pedido</h4>
+
+<!-- informações sobre o pedido -->
+<section class="row">
+    
+    <center>
+    <table class="table table-bordered" style="width: 80%">
+        <tr class="bg-success">
+            
+            <td><b>Data:</b> {$ITENS.1.ped_data}</td>
+            
+            <td><b>Hora:</b> {$ITENS.1.ped_hora}</td>
+            
+            <td><b>Ref:</b> {$ITENS.1.ped_ref}</td>
+            
+            <td><b>Status:</b> {$ITENS.1.ped_pag_status}</td>
+            
+        </tr>  
+        
+        
+    </table>
+    </center>
+    
+</section>
+
+
+<!-- listagem dos itens -->
+<section class="row" id="listaitens">
+    
+    <center>
+    <table class="table table-bordered" style="width: 80%">
+        
+        <tr class="text-success bg-success">
+            <td></td>
+            <td>Item</td>
+            <td>Valor Uni</td>
+            <td>X</td>
+            <td>Sub</td>
+        </tr>
+        
+        {foreach from=$ITENS item=P}
+        <tr>
+            
+            <td><img src="{$P.item_img}" alt=""> </td>
+            <td> {$P.item_nome}</td>
+            <td class="text-right"> {$P.item_valor}</td>
+            <td class="text-center"> {$P.item_qtd}</td>
+            <td class="text-right"> {$P.item_sub}</td>
+            
+        </tr>
+        
+        {/foreach}
+        
+        
+    </table>
+    </center>
+    
+    
+    
+</section>
+        
+        
+        <section class="row" id="resumo">
+
+            <center>
+                <table class="table table-bordered" style="width: 80%">
+                    <tr>
+
+                        <td class="text-danger"> <b>Frete:</b> {$ITENS.1.ped_frete_valor}</td>
+
+                        <td class="text-danger"> <b>Total:</b> {$TOTAL}</td>
+
+                        <td class="text-danger"> <b>Final:</b> {$ITENS.1.ped_frete_valor+$TOTAL}</td>
+
+                    </tr>  
+
+
+                </table>
+             
+                        
+        </section>  
+                        
+                        
+              {if $ITENS.1.ped_pag_status =='NAO'}          
+                         <!--  modos de pagamento e outras informações --> 
+        <section class="row">
+            <h3 class="text-center"> Formas de pagamento </h3>     
+            
+            <div class="col-md-4">
+              
+            </div>
+            <!-- botao de pagamento  -->
+            <div class="col-md-4">
+               
+                BOTÃO DE PAGAMENTO
+                
+                
+                   <img src="{$TEMA}/images/logo-pagseguro.png"  alt=""> 
+                   <script type="text/javascript" src=""></script>
+                
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+         
+            
+        </section>
+
+ {/if}
+
+ 
+
+
+
+
+
+
+GET LISTA CLASSE ITENS
+
+ 'ped_id'    => $lista['ped_id'],
+                'ped_data'  => Sistema::Fdata($lista['ped_data']),
+                'ped_data_us'  => $lista['ped_data'],
+                'ped_hora'   => $lista['ped_hora'],
+                'ped_cliente' => $lista['ped_cliente'],
+                'ped_cod'   => $lista['ped_cod'],
+                'ped_ref'     => $lista['ped_ref'],
+                'ped_pag_status' => $lista['ped_pag_status'],
+                'ped_pag_forma'   => $lista['ped_pag_forma'],
+                'ped_pag_tipo'    => $lista['ped_pag_tipo'],
+                'ped_pag_codigo'   => $lista['ped_pag_codigo'],
+                'ped_frete_valor' => $lista['ped_frete_valor'],
+                'ped_frete_tipo'  => $lista['ped_frete_tipo'],
+                'item_id'  => $lista['item_id'],
+                'item_nome'  => $lista['pro_nome'],
+                'item_valor'  => Sistema::MoedaBR($lista['item_valor']),
+                'item_valor_us'  => $lista['item_valor'],
+                'item_qtd'  => $lista['item_qtd'],
+                'item_img'  => Rotas::ImageLink($lista['pro_img'], 60, 60) ,
+                'item_sub'  => Sistema::MoedaBR($sub),
+                'item_sub_us'  => $sub,
+
+
+
+
+
+
+
+
+ASSING INDEX ADM
+
+$smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
+$smarty->assign('SITE_NOME', Config::SITE_NOME);
+$smarty->assign('GET_SITE_HOME', Rotas::get_SiteHOME());
+$smarty->assign('GET_SITE_ADM', Rotas::get_SiteADM());
+$smarty->assign('PAG_ADM_CLIENTE', Rotas::pag_ClientesADM());
+$smarty->assign('PAG_ADM_PEDIDOS', Rotas::pag_PedidosADM());
+$smarty->assign('PAG_CONTATO', Rotas::pag_Contato());
+$smarty->assign('PAG_CATEGORIAS', Rotas::pag_CategoriasADM());
+$smarty->assign('PAG_ADM_PRODUTOS', Rotas::pag_ProdutosADM());
+$smarty->assign('CATEGORIAS', $categorias->GetItens());
+$smarty->assign('DATA', Sistema::DataAtualBR());
+$smarty->assign('LOGADO', Login::LogadoADM());
+$smarty->assign('PAG_LOGOFF', Rotas::get_SiteADM() .'/logoff');
+$smarty->assign('PAG_SENHA', Rotas::get_SiteADM() .'/adm_senha');
+
+
+
+
+
+
+TEMPLATE PRODUTOS ADM
+
+
+<h4 class="text-center">Gerenciar Produtos</h4>
+<hr>
+<section class="row ">
+    
+    
+ <div class="col-md-4"> </div>
+
+ 
+
+    <div class="col-md-4"> </div>
+
+    <div class="col-md-4 text-right">
+        <a href="{$PAG_PRODUTO_NOVO}" class="btn btn-success"> <i class="glyphicon glyphicon-plus"></i> Novo Produto</a>
+
+    </div>
+
+
+
+
+</section>
+<br>
+
+<!--     exibe mensagem caso nao encontre produtos -->
+ {if $PRO_TOTAL < 1}
+    <h4 class="alert alert-danger">Ops... Nada foi encontrado </h4>  
+ {/if}
+
+        
+    <!--  começa lista de produtos  ---->   
+  <section id="produtos" class="row">  
+ 
+
+      
+      <table class="table table-bordered">  
+      
+          <tr class="bg-success text-success">
+             
+              <td></td> 
+              <td>Produto</td> 
+              <td>Categoria</td> 
+              <td>Preço</td> 
+              <td>      </td>      
+              <td>      </td>      
+          
+          </tr>
+          
+          
+    {foreach from=$PRO item=P}
+    
+    <tr>
+        
+        
+        <td>  <img src="{$P.pro_img_p}" alt="" > </td>
+        <td> {$P.pro_nome}</td>
+        <td>{$P.cate_nome}</td>
+        <td class="text-right">R$ {$P.pro_valor}</td>
+        <td>
+
+            <form name="proeditar" method="post" action="">
+                <input type="hidden" name="pro_id" id="pro_id" value="{$P.pro_id}">
+                <button class="btn btn-success"> <i class="glyphicon glyphicon-pencil"></i> </button>
+   
+            </form>  
+            
+        </td>
+
+        <td>
+
+            <form name="proimg" method="post" action="">
+                <input type="hidden" name="pro_id" id="pro_id" value="{$P.pro_id}">
+                <input type="hidden" name="pro_nome" id="pro_nome" value="{$P.pro_nome}">
+                <button class="btn btn-info"> <i class="glyphicon glyphicon-picture"></i> </button>
+   
+            </form>  
+            
+        </td>
+
+
+    </tr>
+    
+    {/foreach}
+    
+      </table>
+    
+    </section>
+    
+    
+     <!--  paginação inferior   -->  
+    <section id="pagincao" class="row">
+    <center>
+    {$PAGINAS}
+    </center>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+PAGINA ADM PRODUTOS NOVO
+
+             
+
+<h4 class="text-center"> Adicionar novo produto </h4>
+<hr>
+  
+
+<!-- começa os campos para form produto    -->
+<section class="row" id="camposproduto">
+                                           <!--  enctype="multipart/form-data"  -->
+    <form name="frm_produto" method="post" action=""  enctype="multipart/form-data">
+        
+        <div class="col-md-6">
+            <label>Produto</label>
+            <input type="text" name="pro_nome" id="pro_nome" class="form-control"  required >
+            
+        </div>
+        
+        
+        
+        <div class="col-md-4">
+            <label>Catogoria</label>
+         
+            <select name="pro_categoria" id="pro_categoria" class="form-control" required>
+              
+                <option value=""> Escolha </option>                           
+                    {foreach from=$CATEGORIAS item=C}                    
+                <option value="{$C.cate_id}">{$C.cate_nome}</option>                                        
+                    {/foreach}                
+            </select>
+            
+            
+        </div>
+        
+        
+        
+        
+        <div class="col-md-2">
+            <label>Ativo</label>
+            <select name="pro_ativo" id="pro_cativo" class="form-control" required>
+              
+                <option value=""> Escolha </option>
+                <option value="NAO"> Não </option>
+                <option value="SIM"> Sim </option>
+                
+            </select>
+            
+            
+        </div>
+        
+        
+        
+        
+        
+           <div class="col-md-3">
+            <label>Modelo</label>
+            <input type="text" name="pro_modelo" id="pro_modelo" class="form-control"  >
+            
+        </div>
+        
+        
+           <div class="col-md-2">
+            <label>Referencia</label>
+            <input type="text" name="pro_ref" id="pro_ref" class="form-control"  >
+            
+        </div>
+        
+        
+        
+           <div class="col-md-2">
+            <label>Valor</label>
+            <input type="text" name="pro_valor" id="pro_valor" class="form-control" required >
+            
+        </div>
+        
+        
+        
+           <div class="col-md-2">
+            <label>Estoque</label>
+            <input type="text" name="pro_estoque" id="pro_estoque" class="form-control" required >
+            
+          </div>
+        
+        
+        
+           <div class="col-md-2">
+            <label>Peso</label>
+            <input type="text" name="pro_peso" id="pro_peso" class="form-control" required >
+            
+          </div>
+        
+        
+           <div class="col-md-2">
+            <label>Altura</label>
+            <input type="text" name="pro_altura" id="pro_altura" class="form-control" required >
+            
+          </div>
+        
+        
+           <div class="col-md-2">
+            <label>Largura</label>
+            <input type="text" name="pro_largura" id="pro_largura" class="form-control" required >
+            
+          </div>
+        
+        
+           <div class="col-md-2">
+            <label>Comprimento</label>
+            <input type="text" name="pro_comprimento" id="pro_comprimento" class="form-control" required >
+            
+          </div>
+        
+       
+        <div class="col-md-12">
+            
+            <div class="col-md-3">
+                
+            </div>
+            
+            <div class="col-md-6">
+            
+                 <hr>
+                 <label>Imagem Principal</label>
+                 <input type="file" name="pro_img" class="form-control " id="pro_img">
+            </div>
+            
+            <div class="col-md-3">
+                
+             
+            
+            </div>
+            
+
+            
+        </div>
+        
+        
+        
+           <div class="col-md-12">
+            <label>Descrição</label>
+           
+            <textarea name="pro_desc" id="pro_desc" rows="5" class="form-control" ></textarea>
+
+              <script> 
+              tinymce.init({ selector:'textarea'  });
+              </script> 
+          
+          
+      
+            
+         
+          
+          </div>
+        
+           <div class="col-md-12">
+            <label>Slug</label>
+            <input type="text" readonly name="pro_slug" id="pro_slug"   class="form-control" >
+            
+          </div>
+        
+        <!-- botão gravar -->
+    
+      
+            
+            <div class="col-md-4">
+
+            </div>
+
+            <div class="col-md-4">
+                <br>
+                <button class="btn btn-success btn-block btn-lg" name="btn_gravar"> Gravar </button>
+            </div>
+
+            <div class="col-md-4">
+
+            </div>
+
+    
+     
+        
+        
+    </form>
+    
+    
+    
+    
+</section>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+REFERENCIAS CONTROLLER NOVO PRODUTO
+
+$pro_nome      = $_POST['pro_nome'];
+    $pro_categoria = $_POST['pro_categoria'];
+    $pro_ativo     = $_POST['pro_ativo'];
+    $pro_modelo    = $_POST['pro_modelo'];
+    $pro_ref       = $_POST['pro_ref'];
+    $pro_valor     = $_POST['pro_valor'];
+    $pro_estoque     = $_POST['pro_estoque'];
+    $pro_peso      = $_POST['pro_peso'];
+    $pro_altura    = $_POST['pro_altura'];
+    $pro_largura  = $_POST['pro_largura'];
+    $pro_comprimento  = $_POST['pro_comprimento'];
+    $pro_img          = $_FILES['pro_img']['name'];
+    $pro_desc         = $_POST['pro_desc'];
+    $pro_slug      = $_POST['pro_slug'];
+
+
+
+
+
+
+
+
+    CLASSE DE PRODUTOS
+
+      private $pro_nome, $pro_categoria, $pro_ativo, $pro_modelo, $pro_ref, 
+            $pro_valor, $pro_estoque, $pro_peso , $pro_altura, $pro_largura, $pro_comprimento ,
+            $pro_img, $pro_desc, $pro_slug ;
+
+
+
+
+      GET
+
+       function getPro_nome() {
+        return $this->pro_nome;
+    }
+
+    function getPro_categoria() {
+        return $this->pro_categoria;
+    }
+
+    function getPro_ativo() {
+        return $this->pro_ativo;
+    }
+
+    function getPro_modelo() {
+        return $this->pro_modelo;
+    }
+
+    function getPro_ref() {
+        return $this->pro_ref;
+    }
+
+    function getPro_valor() {
+        return $this->pro_valor;
+    }
+    function getPro_estoque() {
+        return $this->pro_estoque;
+    }
+
+    function getPro_peso() {
+        return $this->pro_peso;
+    }
+
+    function getPro_altura() {
+        return $this->pro_altura;
+    }
+
+    function getPro_largura() {
+        return $this->pro_largura;
+    }
+
+    function getPro_comprimento() {
+        return $this->pro_comprimento;
+    }
+
+    function getPro_img() {
+        return $this->pro_img;
+    }
+
+    function getPro_desc() {
+        return $this->pro_desc;
+    }
+
+    function getPro_slug() {
+        return $this->pro_slug;
+    }
+
+
+
+
+
+
+    //SET
+
+    function setPro_nome($pro_nome) {
+        $this->pro_nome = $pro_nome;
+    }
+
+    function setPro_categoria($pro_categoria) {
+        $this->pro_categoria = $pro_categoria;
+    }
+
+    function setPro_ativo($pro_ativo) {
+        $this->pro_ativo = $pro_ativo;
+    }
+
+    function setPro_modelo($pro_modelo) {
+        $this->pro_modelo = $pro_modelo;
+    }
+
+    function setPro_ref($pro_ref) {
+        $this->pro_ref = $pro_ref;
+    }
+
+    function setPro_valor($pro_valor) {
+        //1.335,99 => 1.33599
+        
+        // procura a virgula e troca por ponto
+      $pro_valor = str_replace('.', '', $pro_valor); 
+      $pro_valor = str_replace(',', '.', $pro_valor); 
+       
+        $this->pro_valor = $pro_valor ;
+       // echo $this->pro_valor;
+        
+    }
+    
+    function setPro_estoque($pro_estoque) {
+        $this->pro_estoque = $pro_estoque;
+    }
+
+    function setPro_peso($pro_peso) {
+      
+       ///  1,600  => 1.600
+        $this->pro_peso = str_replace(',', '.', $pro_peso);
+   
+    }
+
+    function setPro_altura($pro_altura) {
+       
+        $this->pro_altura = $pro_altura;
+    }
+
+    function setPro_largura($pro_largura) {
+        $this->pro_largura = $pro_largura;
+    }
+
+    function setPro_comprimento($pro_comprimento) {
+        $this->pro_comprimento = $pro_comprimento;
+    }
+
+    function setPro_img($pro_img) {
+        $this->pro_img = $pro_img;
+    }
+
+    function setPro_desc($pro_desc) {
+        $this->pro_desc = $pro_desc;
+    }
+
+    function setPro_slug($pro_slug) {
+       
+        
+        $this->pro_slug = Sistema::GetSlug($pro_slug);
+    }
+
+
+
+
+
+
+
+
+
+FUNÇÃO PREPARAR
+
+ function Preparar($pro_nome, $pro_categoria, $pro_ativo, $pro_modelo, $pro_ref, 
+            $pro_valor, $pro_estoque, $pro_peso , $pro_altura, $pro_largura, $pro_comprimento ,
+            $pro_img, $pro_desc, $pro_slug=null){
+        
+                $this->setPro_nome($pro_nome);
+                $this->setPro_categoria($pro_categoria);
+                $this->setPro_ativo($pro_ativo);
+                $this->setPro_modelo($pro_modelo);
+                $this->setPro_ref($pro_ref);
+                $this->setPro_valor($pro_valor);
+                $this->setPro_estoque($pro_estoque);
+                $this->setPro_peso($pro_peso);
+                $this->setPro_altura($pro_altura);
+                $this->setPro_largura($pro_largura);
+                $this->setPro_comprimento($pro_comprimento);
+                $this->setPro_img($pro_img);
+                $this->setPro_desc($pro_desc);
+                $this->setPro_slug($pro_nome);
+            }
+
+
+
+
+
+
+   function Inserir(){
+          
+        $query = "INSERT INTO {$this->prefix}produtos (pro_nome, pro_categoria, pro_ativo, pro_modelo, pro_ref," ;
+        $query.= " pro_valor, pro_estoque, pro_peso , pro_altura, pro_largura, pro_comprimento ,pro_img, pro_desc, pro_slug)";
+        $query.= " VALUES ";
+        $query.= " ( :pro_nome, :pro_categoria, :pro_ativo, :pro_modelo, :pro_ref, :pro_valor, :pro_estoque, :pro_peso ,";
+        $query.= " :pro_altura, :pro_largura, :pro_comprimento ,:pro_img, :pro_desc, :pro_slug)";
+        
+        $params = array(
+        ':pro_nome'=> $this->getPro_nome(),   
+        ':pro_categoria'=> $this->getPro_categoria(),   
+        ':pro_ativo'=> $this->getPro_ativo(),   
+        ':pro_modelo'=> $this->getPro_modelo(),   
+        ':pro_ref'=> $this->getPro_ref(),   
+        ':pro_valor'=> $this->getPro_valor(),   
+        ':pro_estoque'=> $this->getPro_estoque(),   
+        ':pro_peso'=> $this->getPro_peso(),   
+        ':pro_altura'=> $this->getPro_altura() , 
+        ':pro_largura'=> $this->getPro_largura(),
+        ':pro_comprimento'=> $this->getPro_comprimento(),   
+        ':pro_img'=> $this->getPro_img(),   
+        ':pro_desc'=> $this->getPro_desc(),   
+        ':pro_slug'=> $this->getPro_slug(),   
+                     
+        );
+
+
+          if($this->ExecuteSQL($query, $params)):
+               
+                   return TRUE;
+               
+               else:
+                   
+                   return FALSE; 
+               
+           endif;
+        
+        
+           
+           
+        }
+
+
+
+
+
+
+
+
+
+CONTROLLER DE ADM NOVO PRODUTOS
+
+$gravar->Preparar($pro_nome, $pro_categoria, $pro_ativo, $pro_modelo, $pro_ref, $pro_valor, $pro_estoque, $pro_peso, $pro_altura, $pro_largura, $pro_comprimento, $pro_img, $pro_desc, $pro_slug);
+

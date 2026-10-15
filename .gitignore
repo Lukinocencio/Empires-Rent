@@ -1,0 +1,24 @@
+# Logs
+*.log
+
+# Smarty compiled templates e caches (manter diretórios vazios)
+view/compile/*
+!view/compile/.gitkeep
+adm/view/compile/*
+!adm/view/compile/.gitkeep
+view/cache/*
+!view/cache/.gitkeep
+adm/view/cache/*
+!adm/view/cache/.gitkeep
+
+# Thumbnails dinâmicas de cache
+media/images/cache/*
+!media/images/cache/.gitkeep
+
+# IDEs e Sistema Operacional
+.vscode/
+.idea/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
