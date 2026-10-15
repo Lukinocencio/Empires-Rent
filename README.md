@@ -103,7 +103,7 @@ c:/www/TCC_EM/
 ### Passo 1: Obter o Código
 Clone o repositório em seu diretório de servidores web (ex: `C:\www\TCC_EM`):
 ```bash
-git clone https://github.com/Lukinocencio/Empire-s-Rent.git
+git clone https://github.com/Lukinocencio/Empires-Rent.git
 ```
 
 ### Passo 2: Configurar o VirtualHost / Alias no Apache
