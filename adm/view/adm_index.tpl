@@ -31,24 +31,17 @@
                  
                 
                 <div class="container">
-
-                    <div class="col-md-6">
-                         <img src="{$GET_TEMA}/images/logo-adm.png" alt=""> 
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                         <img src="{$GET_TEMA}/images/logo-adm.svg" alt="{$TITULO_SITE} Admin" class="logo-topo"> 
                     </div>
 
-                    <div class="col-md-6 text-right">
-                            
-                                     <br>{if $LOGADO == true}
-                                      Olá: {$USER} <a href="{$PAG_LOGOFF}" class="btn btn-info"><i class="glyphicon glyphicon-log-out"></i> Sair </a> 
-                                      <a href="{$PAG_SENHA}" class="btn btn-warning"><i class="glyphicon glyphicon-asterisk"></i>Alterar Senha </a> <br><br>
-                                      <h5>
-                                      <p>Último Login: {$DATA} ás {$HORA}
-                                        </p>
-                                       </h5>
-                                     {/if}
-                        
-                        </div>  
-                       
+                    <div class="col-xs-12 col-sm-6 col-md-6 text-right topo-usuario">
+                        {if $LOGADO == true}
+                            Olá: <b>{$USER}</b> 
+                            <a href="{$PAG_LOGOFF}" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-log-out"></i> Sair </a> 
+                            <br><small class="text-muted">Último Login: {$DATA} às {$HORA}</small>
+                        {/if}
+                    </div>  
                 </div> 
 
 
@@ -119,10 +112,10 @@
             <div class="container"> 
               
                 <!-- coluna da esquerda -->
-                <div class="col-md-2" id="lateral">
+                <div class="col-xs-12 col-sm-4 col-md-3" id="lateral">
                     
-                <div class="list-group">
-                    <span class="list-group-item active"> Categorias</span>
+                <div class="list-group painel-categorias">
+                    <span class="list-group-item active"><i class="glyphicon glyphicon-th-list"></i> Categorias</span>
 
                      <a href="{$PAG_ADM_PRODUTOS}" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> Todos</a> 
 
@@ -131,17 +124,13 @@
                     <a href="{$C.cate_link_adm}" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> {$C.cate_nome}</a> 
                     
                     {/foreach}
-
-
-                    
-                    
                     
                 </div><!--fim da list group-->              
                               
                 </div> <!-- finm coluna esquerda -->  
                 
-                <!-- coluna direita CONYEUDO CENTRAL -->
-                <div class="col-md-10">
+                <!-- coluna direita CONTEUDO CENTRAL -->
+                <div class="col-xs-12 col-sm-8 col-md-9">
                     
                     
                     <ul class="breadcrumb">

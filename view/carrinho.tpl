@@ -53,58 +53,37 @@ $(document).ready(function(){
     <br>
 
 <!--  table listagem de itens -->
-<section class="row ">
-   
-    <center>
-    <table class="table table-bordered" style="width: 95%">
-
-<!--
-        <tr> 
-        
-            
-            <td colspan="6" align="right"><a href="" class="btn btn-success" title="">Comprar Mais</a></td> 
-        </tr> -->
-       
-        <tr class="text-danger bg-danger">
-            <td></td> 
-            <td>Produto</td> 
-            <td>Valor R$</td> 
-            <td>X</td> 
-            <td>Sub Total R$</td> 
-            <td></td> 
-            
-        </tr>
-     
-        
-       {foreach from=$PRO item=P}
-        
-        <tr>
-            
-            <td> <img src="{$P.pro_img}" alt="{$P.pro_nome}"> </td>
-            <td>  {$P.pro_nome} </td>
-            <td>  {$P.pro_valor} </td>
-            <td> {$P.pro_qtd}  </td>
-            <td>  {$P.pro_subTotal} </td>
-            <td> 
-                <form name="carrinho_dell" method="post" action="{$PAG_CARRINHO_ALTERAR}">
-                  
-                    <input type="hidden" name="pro_id" value="{$P.pro_id}">    
-                    <input type="hidden" name="acao" value="del">    
-                    
-                    <button class="btn btn-danger btn-sm"> <i class="glyphicon glyphicon-minus"></i> </button>
-                </form>
-            </td>
-            
-            
-        </tr>
-        
-       {/foreach}
-        
-    </table>
-  
-    </center>
-        
-           
+<section class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <tr class="text-danger bg-danger">
+                    <th style="width: 80px;"></th> 
+                    <th>Produto</th> 
+                    <th>Valor Unitário</th> 
+                    <th>Qtd</th> 
+                    <th>Subtotal</th> 
+                    <th style="width: 60px;"></th> 
+                </tr>
+                {foreach from=$PRO item=P}
+                <tr>
+                    <td class="text-center"> <img src="{$P.pro_img}" alt="{$P.pro_nome}" class="img-responsive center-block" style="max-height: 60px;"> </td>
+                    <td> <strong>{$P.pro_nome}</strong> </td>
+                    <td> R$ {$P.pro_valor} </td>
+                    <td class="text-center"> <span class="badge">{$P.pro_qtd}</span> </td>
+                    <td class="text-danger"> <strong>R$ {$P.pro_subTotal}</strong> </td>
+                    <td class="text-center"> 
+                        <form name="carrinho_dell" method="post" action="{$PAG_CARRINHO_ALTERAR}">
+                            <input type="hidden" name="pro_id" value="{$P.pro_id}">    
+                            <input type="hidden" name="acao" value="del">    
+                            <button class="btn btn-danger btn-sm" title="Remover produto"> <i class="glyphicon glyphicon-trash"></i> </button>
+                        </form>
+                    </td>
+                </tr>
+                {/foreach}
+            </table>
+        </div>
+    </div>
 </section><!-- fim da listagem itens -->
         
         

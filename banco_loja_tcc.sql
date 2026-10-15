@@ -137,6 +137,10 @@ CREATE TABLE `qc_pedidos` (
   KEY `ped_cliente` (`ped_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `qc_pedidos` (`ped_id`, `ped_cliente`, `ped_data`, `ped_hora`, `ped_cod`, `ped_ref`, `ped_pag_status`, `ped_pag_forma`, `ped_pag_tipo`, `ped_pag_codigo`, `ped_frete_valor`, `ped_frete_tipo`) VALUES
+(1, 1, '2026-10-14', '10:15:00', 'PED-20261014-001', 'REF-001', 'PAGO', 'Cartão', 'PagSeguro', 'TRANS-111', 25.00, 'SEDEX'),
+(2, 1, '2026-10-15', '16:45:00', 'PED-20261015-002', 'REF-002', 'NAO', 'Boleto', 'Boleto Bancário', 'TRANS-222', 18.50, 'PAC');
+
 -- --------------------------------------------------------
 -- Estrutura da tabela `qc_pedidos_itens`
 -- --------------------------------------------------------
@@ -150,6 +154,10 @@ CREATE TABLE `qc_pedidos_itens` (
   PRIMARY KEY (`item_id`),
   KEY `item_produto` (`item_produto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `qc_pedidos_itens` (`item_id`, `item_produto`, `item_valor`, `item_qtd`, `item_ped_cod`) VALUES
+(1, 1, 249.90, 1, 'PED-20261014-001'),
+(2, 8, 119.90, 2, 'PED-20261015-002');
 
 -- --------------------------------------------------------
 -- Estrutura da tabela `qc_user`

@@ -3,7 +3,7 @@
 $smarty = new Template();
 
 
-$smarty->assign('BANNER', Rotas::ImageLink('baner.png', 750,230));
+$smarty->assign('BANNER', Rotas::ImageLink('banner.jpg', 850, 220));
 
 $smarty->display('home.tpl');
 

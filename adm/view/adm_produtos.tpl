@@ -28,61 +28,42 @@
         
     <!--  começa lista de produtos  ---->   
   <section id="produtos" class="row">  
- 
-
-      
-      <table class="table table-bordered">  
-      
-          <tr class="bg-success text-success">
-             
-              <td></td> 
-              <td>Produto</td> 
-              <td>Categoria</td> 
-              <td>Preço</td> 
-              <td>      </td>      
-              <td>      </td>      
-          
-          </tr>
-          
-          
-    {foreach from=$PRO item=P}
-    
-    <tr>
-        
-        
-        <td>  <img src="{$P.pro_img_p}" alt="" > </td>
-        <td> {$P.pro_nome}</td>
-        <td>{$P.cate_nome}</td>
-        <td class="text-right">R$ {$P.pro_valor}</td>
-        <td>
-
-            <form name="proeditar" method="post" action="{$PAG_PRODUTO_EDITAR}">
-                <input type="hidden" name="pro_id" id="pro_id" value="{$P.pro_id}">
-                <button class="btn btn-success"> <i class="glyphicon glyphicon-pencil"></i> </button>
-   
-            </form>  
-            
-        </td>
-
-        <td>
-
-            <form name="proimg" method="post" action="{$PAG_PRODUTO_IMG}">
-                <input type="hidden" name="pro_id" id="pro_id" value="{$P.pro_id}">
-                <input type="hidden" name="pro_nome" id="pro_nome" value="{$P.pro_nome}">
-                <button class="btn btn-info"> <i class="glyphicon glyphicon-picture"></i> </button>
-   
-            </form>  
-            
-        </td>
-
-
-    </tr>
-    
-    {/foreach}
-    
-      </table>
-    
-    </section>
+      <div class="col-xs-12">
+          <div class="table-responsive">
+              <table class="table table-bordered table-striped table-hover">  
+                  <tr class="bg-success text-success">
+                      <th style="width: 70px;"></th> 
+                      <th>Produto</th> 
+                      <th>Categoria</th> 
+                      <th>Preço</th> 
+                      <th style="width: 50px;">Editar</th>      
+                      <th style="width: 50px;">Fotos</th>      
+                  </tr>
+                  {foreach from=$PRO item=P}
+                  <tr>
+                      <td class="text-center">  <img src="{$P.pro_img_p}" alt="" class="img-responsive center-block" style="max-height: 50px;"> </td>
+                      <td> {$P.pro_nome}</td>
+                      <td>{$P.cate_nome}</td>
+                      <td class="text-right">R$ {$P.pro_valor}</td>
+                      <td class="text-center">
+                          <form name="proeditar" method="post" action="{$PAG_PRODUTO_EDITAR}">
+                              <input type="hidden" name="pro_id" id="pro_id" value="{$P.pro_id}">
+                              <button class="btn btn-success btn-sm" title="Editar"> <i class="glyphicon glyphicon-pencil"></i> </button>
+                          </form>  
+                      </td>
+                      <td class="text-center">
+                          <form name="proimg" method="post" action="{$PAG_PRODUTO_IMG}">
+                              <input type="hidden" name="pro_id" id="pro_id" value="{$P.pro_id}">
+                              <input type="hidden" name="pro_nome" id="pro_nome" value="{$P.pro_nome}">
+                              <button class="btn btn-info btn-sm" title="Fotos"> <i class="glyphicon glyphicon-picture"></i> </button>
+                          </form>  
+                      </td>
+                  </tr>
+                  {/foreach}
+              </table>
+          </div>
+      </div>
+  </section>
     
     
      <!--  paginação inferior   -->  

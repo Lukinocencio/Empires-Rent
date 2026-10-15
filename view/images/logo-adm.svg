@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 70" width="380" height="70">
+  <defs>
+    <linearGradient id="goldGradAdm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(10, 8)">
+    <circle cx="27" cy="27" r="26" fill="url(#goldGradAdm)"/>
+    <circle cx="27" cy="27" r="23" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.6"/>
+    <path d="M14 36 L40 36 L39 33 L15 33 Z" fill="#ffffff"/>
+    <path d="M15 32 L13 18 L21 26 L27 12 L33 26 L41 18 L39 32 Z" fill="#ffffff"/>
+    <circle cx="13" cy="17" r="2" fill="#ffffff"/>
+    <circle cx="27" cy="11" r="2.4" fill="#ffffff"/>
+    <circle cx="41" cy="17" r="2" fill="#ffffff"/>
+  </g>
+  <text x="75" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff" letter-spacing="0.5">Empire's Rent</text>
+  <text x="76" y="52" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="600" fill="#fcd34d" letter-spacing="2">PAINEL ADMINISTRATIVO</text>
+  <rect x="295" y="16" width="65" height="24" rx="4" fill="#dc2626"/>
+  <text x="327" y="33" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">ADM</text>
+</svg>
