@@ -23,6 +23,8 @@ $categorias->GetCategorias();
 
 
 //valores para o template
+$smarty->assign('NOME', 'Lucas Inocêncio de França');
+$smarty->assign('DATA_TCC', '01/12/2021');
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
 $smarty->assign('TITULO_SITE', Config::SITE_NOME);
 $smarty->assign('SITE_NOME', Config::SITE_NOME);

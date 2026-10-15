@@ -188,7 +188,7 @@
             <div class="row" id="rodape">
                 <center>
                     <h4>{$TITULO_SITE}</h4>
-                    <P>Todos os Direitos Reservados - Hugo Vasconcelos - Q-Cursos - Data Atual: {$DATA}</P>
+                    <p>Desenvolvido por Lucas Inocêncio de França — TCC Apresentado em: {$DATA_TCC}</p>
                 </center>
             
             </div><!-- fim div rodape-->

@@ -1,17 +1,19 @@
 # Empire's Rent - Sistema de E-Commerce
 ### Trabalho de Conclusão de Curso (TCC) - Ensino Médio Técnico em Informática
+**Apresentado em:** 01/12/2021
 
 ![PHP](https://img.shields.io/badge/PHP-7.4%20%7C%208.x-777BB4?style=flat-square&logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.x%20%7C%20MariaDB-4479A1?style=flat-square&logo=mysql&logoColor=white)
 ![Smarty](https://img.shields.io/badge/Template-Smarty%203-FF9900?style=flat-square)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-3.3-563D7C?style=flat-square&logo=bootstrap&logoColor=white)
+![Apresentação](https://img.shields.io/badge/Apresenta%C3%A7%C3%A3o-01%2F12%2F2021-blue?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-100%25%20Operacional-brightgreen?style=flat-square)
 
 ---
 
 ## 📌 Sobre o Projeto
 
-O **Empire's Rent** é um sistema completo de comércio eletrônico e catálogo virtual desenvolvido como **Trabalho de Conclusão de Curso (TCC)** para obtenção do título de **Técnico em Informática integrado ao Ensino Médio**, desenvolvido por **Lucas Inocêncio**.
+O **Empire's Rent** é um sistema completo de comércio eletrônico e catálogo virtual desenvolvido como **Trabalho de Conclusão de Curso (TCC)** para obtenção do título de **Técnico em Informática integrado ao Ensino Médio**, apresentado formalmente em **01/12/2021** por **Lucas Inocêncio**.
 
 O projeto foi concebido para simular o ecossistema comercial de uma loja moderna, contemplando desde a experiência de compra do cliente (vitrine, busca, categorias, carrinho em sessão, cálculo de frete e finalização de pedidos) até a retaguarda operacional completa (gestão de estoque, produtos, upload de fotos, categorias, clientes e controle financeiro de pedidos).
 
@@ -157,7 +159,8 @@ Durante o processo de revisão e auditoria do projeto, foram solucionadas as seg
 
 ---
 
-## 👤 Autor
+## 👤 Autor e Apresentação
 
-* **Lucas Inocêncio de França**
-* Projeto desenvolvido como Trabalho de Conclusão de Curso (TCC) do **Ensino Médio Técnico em Informática**.
+* **Autor**: Lucas Inocêncio de França
+* **Projeto**: Trabalho de Conclusão de Curso (TCC) do **Ensino Médio Técnico em Informática**
+* **Data da Apresentação**: 01/12/2021

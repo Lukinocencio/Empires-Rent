@@ -153,7 +153,7 @@
                 <div class="container text-center">
                     <h4>{$TITULO_SITE}</h4>
                     <p>Sistema de E-Commerce &amp; Locação — Trabalho de Conclusão de Curso (TCC)</p>
-                    <p class="text-muted"><small>Desenvolvido por Lucas Inocêncio de França — Data Atual: {$DATA}</small></p>
+                    <p class="text-muted"><small>Desenvolvido por Lucas Inocêncio de França — TCC Apresentado em: {$DATA_TCC}</small></p>
                 </div>
             </div><!-- fim div rodape-->
             
