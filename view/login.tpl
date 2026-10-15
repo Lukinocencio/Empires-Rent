@@ -42,15 +42,9 @@
                 
                 
             </div>
-            <div class="form-group"> 
-                
-                <a href="{$PAG_CADASTRO}" class="btn btn-default "><i class="glyphicon glyphicon-pencil"></i> Me Cadastrar</a>
-             
-                
-                <a href="{$PAG_RECOVERY}" class="btn btn-default "><i class="glyphicon glyphicon-question-sign"></i> Esqueci a Senha</a>
-           
-                
-                
+            <div class="form-group" style="display: flex; gap: 10px; flex-wrap: wrap;"> 
+                <a href="{$PAG_CADASTRO}" class="btn btn-default" style="flex: 1; text-align: center;"><i class="glyphicon glyphicon-pencil"></i> Me Cadastrar</a>
+                <a href="{$PAG_RECOVERY}" class="btn btn-default" style="flex: 1; text-align: center;"><i class="glyphicon glyphicon-question-sign"></i> Esqueci a Senha</a>
             </div>
 
             

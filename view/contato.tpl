@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <div class="row">
         
         <form class="form-horizontal" id="frmcontatoazul" action="envio">

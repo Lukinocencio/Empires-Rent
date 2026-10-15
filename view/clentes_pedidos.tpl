@@ -4,58 +4,47 @@
 <section class="row" id="pedidos">
     
     <h4 class="text-center">Meus Pedidos</h4>
-    
-    <center>
     {if $PEDIDOS_QUANTIDADE > 0}
-    <table class="table table-bordered" style="width: 90%">
-        
-        <tr class="text-danger bg-danger">
-            <td>Data</td>
-            <td>Hora</td>
-            <td>Ref</td>
-           
-            <td>Status</td>
-            <td></td>
-        </tr>
-        
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="text-danger bg-danger">
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Ref</th>
+                <th>Status</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
         {foreach from=$PEDIDOS item=P}
-        <tr>
-            
-            <td style="width: 10%">{$P.ped_data}</td>
-            <td style="width: 10%">{$P.ped_hora}</td>
-            <td style="width: 10%">{$P.ped_ref}</td>
-          
-            
-            {if $P.ped_pag_status == 'NAO'} 
-             <td style="width: 15%"><span class="label label-danger">{$P.ped_pag_status}</span></td>
-            {elseif $P.ped_pag_status == 'Pago'}
-              <td style="width: 15%"><span class="label label-success">{$P.ped_pag_status}</span></td>
-            {else}
-              <td style="width: 15%">{$P.ped_pag_status}</td>
-            {/if}
-             
-        <form name="itens" method="post" action="{$PAG_ITENS}">
-            
-             <input type="hidden" name="cod_pedido" id="cod_pedido" value="{$P.ped_cod}">
-             <td style="width: 10%"><button class="btn btn-default"><i class="glyphicon glyphicon-menu-hamburger"></i> Detalhes</button></td>
-       
-        </form>    
-            
-        </tr>
-
-      
-
-      {/foreach}
-
-
-    
-        
+            <tr>
+                <td>{$P.ped_data}</td>
+                <td>{$P.ped_hora}</td>
+                <td>{$P.ped_ref}</td>
+                <td>
+                {if $P.ped_pag_status == 'NAO'} 
+                    <span class="label label-danger">{$P.ped_pag_status}</span>
+                {elseif $P.ped_pag_status == 'Pago'}
+                    <span class="label label-success">{$P.ped_pag_status}</span>
+                {else}
+                    <span class="label label-info">{$P.ped_pag_status}</span>
+                {/if}
+                </td>
+                <td>
+                    <form name="itens" method="post" action="{$PAG_ITENS}">
+                        <input type="hidden" name="cod_pedido" id="cod_pedido" value="{$P.ped_cod}">
+                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-menu-hamburger"></i> Detalhes</button>
+                    </form>
+                </td>
+            </tr>
+        {/foreach}
+        </tbody>
     </table>
-
+    </div>
     {else}
-        Você não tem nenhum pedido ainda!
-        {/if}
-      </center>
+        <div class="alert alert-info">Você não tem nenhum pedido ainda!</div>
+    {/if}
 
 
 
